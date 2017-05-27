@@ -1,3 +1,6 @@
+# IMPORTANT
+## PLEASE MAKE ANY AND ALL PULL REQUESTS FROM THE RELEASES BRANCH. THIS MASTER BRANCH IS VERY BEHIND, AND ANY PULL REQUESTS YOU MAKE TO THIS WILL JUST MEAN MORE WORK FOR ME. THANK YOU!
+
 # Ludicrous-Propulsion-Systems
 [KSP] A mod that adds much longer 0.625 and 1.25 meter parts, and some interesting new engine designs.
 
