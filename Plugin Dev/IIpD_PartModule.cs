@@ -20,7 +20,7 @@ namespace LudicrousPropulsionSystems
 			{
 				return "Warping";
 			}
-			else if (!teaAvalible)
+			else if (!teaAvalible(amountNeededForWarp))
 			{
 				return "Warp Unavalible";
 			}
@@ -31,7 +31,7 @@ namespace LudicrousPropulsionSystems
 		}
 		private double time()
 		{
-			return Planetarium.time;
+			return Planetarium.GetUniversalTime();
 		}
 		private double warpedTime;
 		private bool waiting = false;
@@ -42,7 +42,7 @@ namespace LudicrousPropulsionSystems
 		}
 		public bool teaAvalible(amountNeededForWarp)
 		{
-			if (Tea >= amountNeededForWarp)
+			if (Tea() >= amountNeededForWarp)
 				return true;
 			else
 				return false;
@@ -50,6 +50,7 @@ namespace LudicrousPropulsionSystems
 		public void Part.Awake()
 		{
 			warping = false;
+			UpdateWarpStatus();
 		}
 		public void UpdateWarpStatus()
 		{
@@ -71,7 +72,11 @@ namespace LudicrousPropulsionSystems
 				}
 				if (waiting)
 				{
-					if (warpedTime == (time - ))
+					if (warpedTime <= (time() - 2))
+					{
+						waiting = false;
+						UpdateWarpStatus();
+					}
 				}
 			}
 		}
