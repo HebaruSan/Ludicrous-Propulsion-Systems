@@ -40,7 +40,7 @@ namespace LudicrousPropulsionSystems
 		{
 			return FinePrint.Utilities.VesselUtilites.VesselResourceAmount(Tea, ActiveVessel);
 		}
-		public bool teaAvalible(amountNeededForWarp)
+		public bool TeaAvailable()
 		{
 			if (Tea() >= amountNeededForWarp)
 				return true;
@@ -85,9 +85,29 @@ namespace LudicrousPropulsionSystems
 	{
 		public class OrbGen()
 		{
+			private int planetGenNum;
+			private int planetForLoopTimesThrough;
+			private string RandPlanGen()
+			{
+				for (i = random.Next(0,100), i < 101, i += random.Next(5)
+				{
+					planetGenNum += random.Next(1,14);
+					planetForLoopTimesThrough++;
+				}
+				planetGenNum = planetGenNum / planetForLoopTimesThrough;
+				for (j = random.Next(1,14), j < )
+				{
+					
+				}//finish randomizer TODO
+			}
+			private void ResetGenNum()
+			{
+				planetGenNum = null;
+				planetForLoopTimesThrough = null;
+			}
 			private string GeneratePlanet()
 			{
-				
+				return RandPlanGen();
 			}
 			private double GenerateOrbVelocity()
 			{
@@ -110,6 +130,7 @@ namespace LudicrousPropulsionSystems
 				warpedPlanet = OrbGen.GeneratePlanet();
 				warpedVel = OrbGen.GenerateOrbVelocity();
 				warpedInc = OrbGen.GenerateOrbInclination();
+				Vessel.obt_velocity = warpedVel;
 			}
 		}
 	}
