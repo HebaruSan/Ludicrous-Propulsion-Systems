@@ -87,6 +87,10 @@ namespace LudicrousPropulsionSystems
 		{
 			private int planetGenNum;
 			private int planetForLoopTimesThrough;
+			private int a;
+			private int b;
+			private int c;
+			private int d;
 			private string RandPlanGen()
 			{
 				for (i = random.Next(0,100), i < 101, i += random.Next(5)
@@ -95,9 +99,16 @@ namespace LudicrousPropulsionSystems
 					planetForLoopTimesThrough++;
 				}
 				planetGenNum = planetGenNum / planetForLoopTimesThrough;
-				for (j = random.Next(1,14), j < )
+				for (j = random.Next(1,14), j < 15, j++)
 				{
-					
+					a += j;
+					b *= a;
+					d = (a * j)/(b % 3);
+					c = ((d * a) % b) + j;
+					for (k = random.Next(random.Next(1,50),random.Next(51,100), k < random.Next(120, 150), k ++)
+					{
+						
+					}
 				}//finish randomizer TODO
 			}
 			private void ResetGenNum()
