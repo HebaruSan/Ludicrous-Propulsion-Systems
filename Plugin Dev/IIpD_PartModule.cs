@@ -85,6 +85,7 @@ namespace LudicrousPropulsionSystems
 	{
 		public class OrbGen()
 		{
+			System.Random randum = new System.Random();
 			private int planetGenNum;
 			private int planetGenNumDiff;
 			private int planetForLoopTimesThrough;
@@ -94,19 +95,19 @@ namespace LudicrousPropulsionSystems
 			private int d;
 			private string RandPlanGen()
 			{
-				for (i = System.Random.Next(0,100), i < 101, i += System.Random.Next(5)
+				for (i = randum.Next(0,100), i < 101, i += randum.Next(5)
 				{
-					planetGenNum += random.Next(1,14);
+					planetGenNum += randum.Next(1,14);
 					planetForLoopTimesThrough++;
 				}
 				planetGenNum = planetGenNum / planetForLoopTimesThrough;
-				for (j = System.Random.Next(1,14), j < 15, j++)
+				for (j = randum.Next(1,14), j < 15, j++)
 				{
 					a += j;
 					b *= a;
 					d = (a * j)/(b % 3);
 					c = ((d * a) % b) + j;
-					for (k = System.Random.Next(random.Next(1,50),System.Random.Next(51,100), k < System.Random.Next(120, 150), k ++)
+					for (k = randum.Next(random.Next(1,50),randum.Next(51,100), k < randum.Next(120, 150), k ++)
 					{
 						a *= k;
 						b += k;
@@ -122,7 +123,7 @@ namespace LudicrousPropulsionSystems
 					{
 						planetGenNumDiff++;
 					}
-					planetGenNum -= System.Random.Next(planetGenNumDiff, planetGenNumDiff + 14);
+					planetGenNum -= randum.Next(planetGenNumDiff, planetGenNumDiff + 14);
 				}
 				Debug.Log(planetGenNum); //print to log to check the probability
 				//Here is the part where the GenNum
