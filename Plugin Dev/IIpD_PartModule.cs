@@ -95,19 +95,19 @@ namespace LudicrousPropulsionSystems
 			private int d;
 			private string RandPlanGen()
 			{
-				for (i = randum.Next(0,100), i < 101, i += randum.Next(5)
+				for (i = randum.Next(0,100); i < 101; i += randum.Next(5)
 				{
 					planetGenNum += randum.Next(1,14);
 					planetForLoopTimesThrough++;
 				}
 				planetGenNum = planetGenNum / planetForLoopTimesThrough;
-				for (j = randum.Next(1,14), j < 15, j++)
+				for (j = randum.Next(1,14); j < 15; j++)
 				{
 					a += j;
 					b *= a;
 					d = (a * j)/(b % 3);
 					c = ((d * a) % b) + j;
-					for (k = randum.Next(random.Next(1,50),randum.Next(51,100), k < randum.Next(120, 150), k ++)
+					for (k = randum.Next(random.Next(1,50),randum.Next(51,100)); k < randum.Next(120, 150); k ++)
 					{
 						a *= k;
 						b += k;
@@ -119,7 +119,7 @@ namespace LudicrousPropulsionSystems
 				planetGenNum /= ((b * c) / (a % d));
 				if (planetGenNum > 14)
 				{
-					for(p = planetGenNum, p < 15, p--)
+					for(p = planetGenNum; p < 15; p--)
 					{
 						planetGenNumDiff++;
 					}
