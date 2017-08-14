@@ -86,6 +86,7 @@ namespace LudicrousPropulsionSystems
 		public class OrbGen()
 		{
 			private int planetGenNum;
+			private int planetGenNumDiff;
 			private int planetForLoopTimesThrough;
 			private int a;
 			private int b;
@@ -107,9 +108,23 @@ namespace LudicrousPropulsionSystems
 					c = ((d * a) % b) + j;
 					for (k = random.Next(random.Next(1,50),random.Next(51,100), k < random.Next(120, 150), k ++)
 					{
-						
+						a *= k;
+						b += k;
+						c -= k;
+						d /= k;
 					}
 				}//finish randomizer TODO
+				planetGenNum *= ((a + b) / (c * d));
+				planetGenNum /= ((b * c) / (a % d));
+				if (planetGenNum > 14)
+				{
+					for(p = planetGenNum, p < 15, p--)
+					{
+						planetGenNumDiff++
+					}
+					planetGenNum -= random.Next(planetGenNumDiff, planetGenNumDiff + 14);
+				}
+				//Here is the part where the GenNum
 			}
 			private void ResetGenNum()
 			{
