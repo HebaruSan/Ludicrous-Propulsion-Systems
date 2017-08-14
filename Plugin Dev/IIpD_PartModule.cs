@@ -7,7 +7,7 @@ namespace LudicrousPropulsionSystems
 {
 	public class InfiniteImprobabilityDrive : PartModule
 	{
-		[KSPField(isPersistant = true, guiActive = true, guiName = WarpStatus)]
+		[KSPField(isPersistant = true, guiActive = true, guiName = WarpStatus)] //fix this, seems incorrect. 
 		public bool warping = false;
 		
 		public string WarpStatus()
@@ -83,13 +83,31 @@ namespace LudicrousPropulsionSystems
 	}
 	public class WarpingDrive : VesselModule
 	{
-		public void OnFixedUpdate
+		Random rnd = new Random();
+		public class OrbGen()
+		{
+			private string GeneratePlanet()
+			{
+				
+			}
+			private double GenerateOrbVelocity()
+			{
+				
+			}
+			private double GenerateOrbInclination()
+			{
+				
+			}
+		}
+		public void OnFixedUpdate()
 		{
 			if (!HighLogic.LoadedSceneIsFlight)
 			{
 				return;
 			}
-			if (teaAvalible )
+			if (teaAvalible(amountNeededForWarp) && warping)
+			{
+				
 		}
 	}
 }
