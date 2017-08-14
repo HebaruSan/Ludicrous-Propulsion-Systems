@@ -83,7 +83,6 @@ namespace LudicrousPropulsionSystems
 	}
 	public class WarpingDrive : VesselModule
 	{
-		Random rnd = new Random();
 		public class OrbGen()
 		{
 			private string GeneratePlanet()
@@ -107,7 +106,11 @@ namespace LudicrousPropulsionSystems
 			}
 			if (teaAvalible(amountNeededForWarp) && warping)
 			{
-				
+				UpdateWarpStatus();
+				warpedPlanet = OrbGen.GeneratePlanet();
+				warpedVel = OrbGen.GenerateOrbVelocity();
+				warpedInc = OrbGen.GenerateOrbInclination();
+			}
 		}
 	}
 }
