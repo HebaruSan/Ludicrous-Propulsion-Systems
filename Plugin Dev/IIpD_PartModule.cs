@@ -94,19 +94,19 @@ namespace LudicrousPropulsionSystems
 			private int d;
 			private string RandPlanGen()
 			{
-				for (i = random.Next(0,100), i < 101, i += random.Next(5)
+				for (i = System.Random.Next(0,100), i < 101, i += System.Random.Next(5)
 				{
 					planetGenNum += random.Next(1,14);
 					planetForLoopTimesThrough++;
 				}
 				planetGenNum = planetGenNum / planetForLoopTimesThrough;
-				for (j = random.Next(1,14), j < 15, j++)
+				for (j = System.Random.Next(1,14), j < 15, j++)
 				{
 					a += j;
 					b *= a;
 					d = (a * j)/(b % 3);
 					c = ((d * a) % b) + j;
-					for (k = random.Next(random.Next(1,50),random.Next(51,100), k < random.Next(120, 150), k ++)
+					for (k = System.Random.Next(random.Next(1,50),System.Random.Next(51,100), k < System.Random.Next(120, 150), k ++)
 					{
 						a *= k;
 						b += k;
@@ -122,7 +122,7 @@ namespace LudicrousPropulsionSystems
 					{
 						planetGenNumDiff++;
 					}
-					planetGenNum -= random.Next(planetGenNumDiff, planetGenNumDiff + 14);
+					planetGenNum -= System.Random.Next(planetGenNumDiff, planetGenNumDiff + 14);
 				}
 				Debug.Log(planetGenNum); //print to log to check the probability
 				//Here is the part where the GenNum
