@@ -120,16 +120,20 @@ namespace LudicrousPropulsionSystems
 				{
 					for(p = planetGenNum, p < 15, p--)
 					{
-						planetGenNumDiff++
+						planetGenNumDiff++;
 					}
 					planetGenNum -= random.Next(planetGenNumDiff, planetGenNumDiff + 14);
 				}
+				Debug.Log(planetGenNum); //print to log to check the probability
 				//Here is the part where the GenNum
+				
 			}
 			private void ResetGenNum()
 			{
 				planetGenNum = null;
 				planetForLoopTimesThrough = null;
+				a = b = c = d = null;
+				planetGenNumDiff = null;
 			}
 			private string GeneratePlanet()
 			{
