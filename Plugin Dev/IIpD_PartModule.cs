@@ -56,12 +56,16 @@ namespace LudicrousPropulsionSystems
 		{
 			WarpStatus();
 		}
+		public void Part.onPartDesroyed()
+		{
+		
+		}
 		public void Part.FixedUpdate()
 		{
 			if (HighLogic.LoadedSceneIsFlight)
 			{
 				UpdateWarpStatus();
-				if (/*parts detatch or explode*/)
+				if (Part.onPartDestroyed)
 				{
 					//checkTeaStatus
 				}
