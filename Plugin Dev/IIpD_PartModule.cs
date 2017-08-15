@@ -156,10 +156,7 @@ namespace LudicrousPropulsionSystems
 			if (teaAvalible(amountNeededForWarp) && warping)
 			{
 				UpdateWarpStatus();
-				//CBset
-				Vessel.SetWorldVelocity() = GenerateOrbVelocity(); //or obt_velocity
-				//set inclination
-				currentAlt = Vessel.altitude;//set altitude
+				this.vessel.orbitDriver.orbit = new Orbit(GenerateInc(), GenerateE(), GenerateSMA(), GenerateLAN(), GenerateArgPE(), GenerateMEP(), GenerateT(), GeneratePlanet());
 			}
 		}
 	}
