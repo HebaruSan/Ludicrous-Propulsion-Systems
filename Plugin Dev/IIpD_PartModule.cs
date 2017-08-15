@@ -89,11 +89,8 @@ namespace LudicrousPropulsionSystems
 	{
 		public class OrbGen()
 		{
-			private string currentBody;
-			private double currentVel;
-			private double currentAlt;
 			private RNGCryptoServiceProvider rand = new RNGCryptoServiceProvider();
-			private int PlanetGenNum(int min, int max)
+			private int GenNum(int min, int max)
 			{
 				uint scale = uint.MaxValue;
 				while (scale == uint.MaxValue)
@@ -106,7 +103,7 @@ namespace LudicrousPropulsionSystems
 			}
 			private string GeneratePlanet()
 			{
-				swtich(PlanetGenNum(1,14))
+				swtich(GenNum(1,14))
 				{
 					case 1:
 						return "Moho";
@@ -138,11 +135,15 @@ namespace LudicrousPropulsionSystems
 						return "Eeloo";
 				}
 			}
-			private double GenerateOrbVelocity()
+			private double GenerateInc()
+			{
+				return GenNum(-180, 180);
+			}
+			private double GenerateE()
 			{
 				
 			}
-			private double GenerateOrbInclination()
+			private double GenerateSMA()
 			{
 				
 			}
