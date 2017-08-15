@@ -147,6 +147,22 @@ namespace LudicrousPropulsionSystems
 			{
 				
 			}
+			private double GenerateLAN()
+			{
+			
+			}
+			private double GenerateArgPE()
+			{
+			
+			}
+			private double GenerateMEP()
+			{
+			
+			}
+			private double GenerateT()
+			{
+			
+			}
 		}
 		public void OnFixedUpdate()
 		{
