@@ -85,49 +85,21 @@ namespace LudicrousPropulsionSystems
 	{
 		public class OrbGen()
 		{
-			System.Random randum = new System.Random();
-			private int planetGenNum;
-			private int planetGenNumDiff;
-			private int planetForLoopTimesThrough;
-			private int a;
-			private int b;
-			private int c;
-			private int d;
+			private RNGCryptoServiceProvider rand = new RNGCryptoServiceProvider();
+			private int PlanetGenNum(int min, int max)
+			{
+				uint scale = uint.MaxValue;
+				while (scale == uint.MaxValue)
+				{
+					byte[] four_bytes = new byte[4];
+					rand.GetBytes(four_bytes);
+					scale = BitConverter.ToUInt32(four_bytes, 0);
+				}
+				return (int)(min + (max - min) * (scale / (double)uint.MaxValue));
+			}
 			private string RandPlanGen()
 			{
-				for (i = randum.Next(0,100); i < 101; i += randum.Next(5)
-				{
-					planetGenNum += randum.Next(1,14);
-					planetForLoopTimesThrough++;
-				}
-				planetGenNum = planetGenNum / planetForLoopTimesThrough;
-				for (j = randum.Next(1,14); j < 15; j++)
-				{
-					a += j;
-					b *= a;
-					d = (a * j)/(b % 3);
-					c = ((d * a) % b) + j;
-					for (k = randum.Next(random.Next(1,50),randum.Next(51,100)); k < randum.Next(120, 150); k ++)
-					{
-						a *= k;
-						b += k;
-						c -= k;
-						d /= k;
-					}
-				}//finish randomizer TODO
-				planetGenNum *= ((a + b) / (c * d));
-				planetGenNum /= ((b * c) / (a % d));
-				if (planetGenNum > 14)
-				{
-					for(p = planetGenNum; p < 15; p--)
-					{
-						planetGenNumDiff++;
-					}
-					planetGenNum -= randum.Next(planetGenNumDiff, planetGenNumDiff + 14);
-				}
-				Debug.Log(planetGenNum); //print to log to check the probability
-				//Here is the part where the GenNum
-				
+				//use a switch here
 			}
 			private void ResetGenNum()
 			{
