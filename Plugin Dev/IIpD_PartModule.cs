@@ -97,9 +97,39 @@ namespace LudicrousPropulsionSystems
 				}
 				return (int)(min + (max - min) * (scale / (double)uint.MaxValue));
 			}
-			private string RandPlanGen()
+			private string GeneratePlanet()
 			{
-				//use a switch here
+				swtich(PlanetGenNum(1,14))
+				{
+					case 1:
+						return "Moho";
+					case 2:
+						return "Eve";
+					case 3:
+						return "Mun";
+					case 4:
+						return "Minmus";
+					case 5:
+						return "Duna";
+					case 6: 
+						return "Ike";
+					case 7:
+						return "Dres";
+					case 8:
+						return "Jool";
+					case 9:
+						return "Tylo";
+					case 10:
+						return "Vall";
+					case 11:
+						return "Laythe";
+					case 12:
+						return "Bop";
+					case 13:
+						return "Pol";
+					case 14:
+						return "Eeloo";
+				}
 			}
 			private void ResetGenNum()
 			{
@@ -107,10 +137,6 @@ namespace LudicrousPropulsionSystems
 				planetForLoopTimesThrough = null;
 				a = b = c = d = null;
 				planetGenNumDiff = null;
-			}
-			private string GeneratePlanet()
-			{
-				return RandPlanGen();
 			}
 			private double GenerateOrbVelocity()
 			{
