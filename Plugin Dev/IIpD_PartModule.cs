@@ -85,6 +85,9 @@ namespace LudicrousPropulsionSystems
 	{
 		public class OrbGen()
 		{
+			private string currentBody;
+			private double currentVel;
+			private double currentAlt;
 			private RNGCryptoServiceProvider rand = new RNGCryptoServiceProvider();
 			private int PlanetGenNum(int min, int max)
 			{
@@ -131,13 +134,6 @@ namespace LudicrousPropulsionSystems
 						return "Eeloo";
 				}
 			}
-			private void ResetGenNum()
-			{
-				planetGenNum = null;
-				planetForLoopTimesThrough = null;
-				a = b = c = d = null;
-				planetGenNumDiff = null;
-			}
 			private double GenerateOrbVelocity()
 			{
 				
@@ -156,10 +152,10 @@ namespace LudicrousPropulsionSystems
 			if (teaAvalible(amountNeededForWarp) && warping)
 			{
 				UpdateWarpStatus();
-				warpedPlanet = OrbGen.GeneratePlanet();
-				warpedVel = OrbGen.GenerateOrbVelocity();
-				warpedInc = OrbGen.GenerateOrbInclination();
-				Vessel.obt_velocity = warpedVel;
+				//CBset
+				Vessel.SetWorldVelocity() = GenerateOrbVelocity(); //or obt_velocity
+				//set inclination
+				currentAlt = Vessel.altitude;//set altitude
 			}
 		}
 	}
