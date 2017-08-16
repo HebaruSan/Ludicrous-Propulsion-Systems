@@ -101,6 +101,10 @@ namespace LudicrousPropulsionSystems
 				}
 				return (int)(min + (max - min) * (scale / (double)uint.MaxValue));
 			}
+			private double GenDouble(double min, double max)
+			{
+				//need double gen here, perferably crypto
+			}
 			private string GeneratePlanet()
 			{
 				swtich(GenNum(1,14))
@@ -141,7 +145,11 @@ namespace LudicrousPropulsionSystems
 			}
 			private double GenerateE()
 			{
-				
+				private double T = 
+				private double n = (360/T);
+				private double t = 
+				private double M = (360/T)*(
+				return M;
 			}
 			private double GenerateSMA()
 			{
