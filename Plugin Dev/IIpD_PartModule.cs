@@ -84,12 +84,14 @@ namespace LudicrousPropulsionSystems
 	}
 	public class WarpingDrive : VesselModule
 	{
+		/*
 		public class OrbGen()
 		{
 			//All to generate a crypto int, not really nessesary, slow, but fun!
 			//Should we remove this for speed issues?
-			private RNGCryptoServiceProvider rand = new RNGCryptoServiceProvider();//Constructor for CryptoInt
-			private System.Random.NextDouble randDouble = new System.Random.NextDouble();//This is constructor for RandDouble
+			//private RNGCryptoServiceProvider rand = new RNGCryptoServiceProvider();//Constructor for CryptoInt
+			private System.Random rand = new System.Random();//This is constructor for System.Random(used for .Next and .NextDouble)
+			 Crypto Int Generator
 			private int GenNum(int min, int max)
 			{
 				uint scale = uint.MaxValue;
@@ -102,9 +104,14 @@ namespace LudicrousPropulsionSystems
 				return (int)(min + (max - min) * (scale / (double)uint.MaxValue));
 			}
 			//End crypto int
+			*/
+			private int GenNum(int max, int min)
+			{
+				return rand.Next(max, min);
+			}
 			private double GenDouble(double min, double max)//Not crypto, but we dont really need that here
 			{
-				return System.Random.NextDouble(min, max);
+				return rand.NextDouble(min, max);
 			}
 			private string GeneratePlanet()
 			{
@@ -140,6 +147,12 @@ namespace LudicrousPropulsionSystems
 						return "Eeloo";
 				}
 			}
+			/*
+			private double SOIFarReach()
+			{
+				//need to get CB's semimajor axis, mass, parentBody's mass
+				return /* SMA 
+			}
 			private double GenerateInc()
 			{
 				return GenNum(-180, 180);
@@ -147,9 +160,10 @@ namespace LudicrousPropulsionSystems
 			private double GenerateE()
 			{
 				private double T = 
-				private double n = (360/T);
-				private double t = 
-				private double M = (360/T)*(
+				private double n = (360/T);//what the averge rate of sweep is
+				private double r = time();//universal time
+				private double t = r + GenDouble(100, 500);//arbitrary time after pericenter
+				private double M = n*(t-
 				return M;
 			}
 			private double GenerateSMA()
@@ -173,6 +187,7 @@ namespace LudicrousPropulsionSystems
 			
 			}
 		}
+		*/
 		public void OnFixedUpdate()
 		{
 			if (!HighLogic.LoadedSceneIsFlight)
@@ -182,11 +197,13 @@ namespace LudicrousPropulsionSystems
 			if (teaAvalible(amountNeededForWarp) && warping)
 			{
 				UpdateWarpStatus();
-				private string planet = GeneratePlanet();
+				//private string planet = GeneratePlanet();
 				//Planet SOI stuff here
-				
+				//private double SOI = SOIFarReach();
 				//End planet SOI calculations
-				this.vessel.orbitDriver.orbit = new Orbit(GenerateInc(), GenerateE(), GenerateSMA(), GenerateLAN(), GenerateArgPE(), GenerateMEP(), GenerateT(), planet);
+				//this.Vessel.orbitDriver.orbit = new Orbit(GenerateInc(), GenerateE(), GenerateSMA(), GenerateLAN(), GenerateArgPE(), GenerateMEP(), GenerateT(), planet);
+				this.Vessel.orbitDriver.orbit = new Orbit.CreateRandomOrbitAround(GeneratePlanet());
+				warping = false;
 			}
 		}
 	}
