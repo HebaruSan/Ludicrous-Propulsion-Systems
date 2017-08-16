@@ -117,12 +117,23 @@ namespace LudicrousPropulsionSystems
 			{
 				return rand.NextDouble(min, max);
 			}
+			/*
+			List<CelestialBody> orbitingBodies = new List<CelestialBody>();
+			private int TotalPlanets()
+			{
+				if (orbitingBodies.Contains("Sun")
+				{
+					orbitingBodies.Remove("Sun");
+				}
+				return orbitingBodies.Count;
+			}
+			*/
 			private string GeneratePlanet()
 			{
-				swtich(GenNum(1,14))
+				swtich(GenNum(1,TotalPLanets()))
 				{
 					case 1:
-						return "Moho";
+						return orbitingBodies<1>;
 					case 2:
 						return "Eve";
 					case 3:
