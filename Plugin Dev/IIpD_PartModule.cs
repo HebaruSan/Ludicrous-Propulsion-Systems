@@ -7,9 +7,10 @@ namespace LudicrousPropulsionSystems
 {
 	public class InfiniteImprobabilityDrive : PartModule
 	{
-		[KSPField(isPersistant = true, guiActive = true, guiName = WarpStatus)] //fix this, seems incorrect. 
+		[KSPField(isPersistant = true, guiActive = true, guiName = "Warp")] //fix this, seems incorrect. 
 		public bool warping = false;
 		
+		[KSPField(isPersistant = false, guiActive = true, guiName = "Warp Status")]
 		public string WarpStatus()
 		{
 			if (TeaAvalible)
@@ -26,7 +27,7 @@ namespace LudicrousPropulsionSystems
 			}
 			else
 			{
-				return "Warped!"
+				return "Warped!";
 			}
 		}
 		private double time()
