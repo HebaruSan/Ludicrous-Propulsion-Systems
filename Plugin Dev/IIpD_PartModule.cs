@@ -12,7 +12,7 @@ namespace LudicrousPropulsionSystems
 		
 		public string WarpStatus()
 		{
-			if (teaAvalible)
+			if (TeaAvalible)
 			{
 				return "Ready To Warp!";
 			}
@@ -20,7 +20,7 @@ namespace LudicrousPropulsionSystems
 			{
 				return "Warping";
 			}
-			else if (!teaAvalible(amountNeededForWarp))
+			else if (!TeaAvalible())
 			{
 				return "Warp Unavalible";
 			}
@@ -58,17 +58,14 @@ namespace LudicrousPropulsionSystems
 		}
 		public void Part.onPartDesroyed()
 		{
-		
+			UpdateWarpStatus();
+			TeaAvalible();
 		}
 		public void Part.FixedUpdate()
 		{
 			if (HighLogic.LoadedSceneIsFlight)
 			{
 				UpdateWarpStatus();
-				if (Part.onPartDestroyed)
-				{
-					//checkTeaStatus
-				}
 				if (WarpStatus == "Warped" && !waiting)
 				{
 					warpedTime = time();
@@ -89,7 +86,10 @@ namespace LudicrousPropulsionSystems
 	{
 		public class OrbGen()
 		{
-			private RNGCryptoServiceProvider rand = new RNGCryptoServiceProvider();
+			//All to generate a crypto int, not really nessesary, slow, but fun!
+			//Should we remove this for speed issues?
+			private RNGCryptoServiceProvider rand = new RNGCryptoServiceProvider();//Constructor for CryptoInt
+			private System.Random.NextDouble randDouble = new System.Random.NextDouble();//This is constructor for RandDouble
 			private int GenNum(int min, int max)
 			{
 				uint scale = uint.MaxValue;
@@ -101,9 +101,10 @@ namespace LudicrousPropulsionSystems
 				}
 				return (int)(min + (max - min) * (scale / (double)uint.MaxValue));
 			}
-			private double GenDouble(double min, double max)
+			//End crypto int
+			private double GenDouble(double min, double max)//Not crypto, but we dont really need that here
 			{
-				//need double gen here, perferably crypto
+				return System.Random.NextDouble(min, max);
 			}
 			private string GeneratePlanet()
 			{
@@ -181,7 +182,11 @@ namespace LudicrousPropulsionSystems
 			if (teaAvalible(amountNeededForWarp) && warping)
 			{
 				UpdateWarpStatus();
-				this.vessel.orbitDriver.orbit = new Orbit(GenerateInc(), GenerateE(), GenerateSMA(), GenerateLAN(), GenerateArgPE(), GenerateMEP(), GenerateT(), GeneratePlanet());
+				private string planet = GeneratePlanet();
+				//Planet SOI stuff here
+				
+				//End planet SOI calculations
+				this.vessel.orbitDriver.orbit = new Orbit(GenerateInc(), GenerateE(), GenerateSMA(), GenerateLAN(), GenerateArgPE(), GenerateMEP(), GenerateT(), planet);
 			}
 		}
 	}
