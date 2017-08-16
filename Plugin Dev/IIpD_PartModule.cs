@@ -57,14 +57,16 @@ namespace LudicrousPropulsionSystems
 		{
 			WarpStatus();
 		}
+		private bool partHasBeenDestroyed = false;
 		public void Part.onPartDesroyed()
 		{
 			UpdateWarpStatus();
 			TeaAvalible();
+			partHasBeenDestroyed = true;
 		}
 		public void Part.FixedUpdate()
 		{
-			if (HighLogic.LoadedSceneIsFlight)
+			if (HighLogic.LoadedSceneIsFlight && partHasBeenDestroyed)
 			{
 				UpdateWarpStatus();
 				if (WarpStatus == "Warped" && !waiting)
@@ -78,6 +80,7 @@ namespace LudicrousPropulsionSystems
 					{
 						waiting = false;
 						UpdateWarpStatus();
+						partHasBeenDestroyed = false;
 					}
 				}
 			}
@@ -191,11 +194,7 @@ namespace LudicrousPropulsionSystems
 		*/
 		public void OnFixedUpdate()
 		{
-			if (!HighLogic.LoadedSceneIsFlight)
-			{
-				return;
-			}
-			if (teaAvalible(amountNeededForWarp) && warping)
+			if (TeaAvalible() && warping && HighLogic.LoadedSceneIsFlight)
 			{
 				UpdateWarpStatus();
 				//private string planet = GeneratePlanet();
@@ -204,6 +203,7 @@ namespace LudicrousPropulsionSystems
 				//End planet SOI calculations
 				//this.Vessel.orbitDriver.orbit = new Orbit(GenerateInc(), GenerateE(), GenerateSMA(), GenerateLAN(), GenerateArgPE(), GenerateMEP(), GenerateT(), planet);
 				this.Vessel.orbitDriver.orbit = new Orbit.CreateRandomOrbitAround(GeneratePlanet());
+				//need to make sure that this actually creates a good random orbit, eccentric, backwards, hugely egg-shaped, all of the above. 
 				warping = false;
 			}
 		}
