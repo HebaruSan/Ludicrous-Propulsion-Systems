@@ -7,7 +7,7 @@ namespace LudicrousPropulsionSystems
 {
 	public class InfiniteImprobabilityDrive : PartModule
 	{
-		[KSPField(isPersistant = true, guiActive = true, guiName = "Warp")] //fix this, seems incorrect. 
+		[KSPField(isPersistant = true, guiActive = true, guiName = "Warp", guiActiveEditor = false)] //fix this, seems incorrect. 
 		public bool warping = false;
 		
 		[KSPField(isPersistant = false, guiActive = true, guiName = "Warp Status")]
@@ -66,10 +66,17 @@ namespace LudicrousPropulsionSystems
 		}
 		public void Part.FixedUpdate()
 		{
-			if (HighLogic.LoadedSceneIsFlight && partHasBeenDestroyed)
+			if (HighLogic.LoadedSceneIsFlight)
 			{
 				UpdateWarpStatus();
-				if (WarpStatus == "Warped" && !waiting)
+				if (warping)
+				{
+					if (TeaAvalible)
+						continue;
+					else
+						return;
+				}
+				if (!waiting)
 				{
 					warpedTime = time();
 					waiting = true;
