@@ -101,8 +101,10 @@ namespace LudicrousPropulsionSystems
 			//All to generate a crypto int, not really nessesary, slow, but fun!
 			//Should we remove this for speed issues?
 			//private RNGCryptoServiceProvider rand = new RNGCryptoServiceProvider();//Constructor for CryptoInt
+			*/
 			private System.Random rand = new System.Random();//This is constructor for System.Random(used for .Next and .NextDouble)
-			 Crypto Int Generator
+			/*
+			//Crypto Int Generator
 			private int GenNum(int min, int max)
 			{
 				uint scale = uint.MaxValue;
@@ -116,58 +118,27 @@ namespace LudicrousPropulsionSystems
 			}
 			//End crypto int
 			*/
-			private int GenNum(int max, int min)
+			private int GenNum(int min, int max)
 			{
-				return rand.Next(max, min);
+				return rand.Next(min, max);
 			}
 			private double GenDouble(double min, double max)//Not crypto, but we dont really need that here
 			{
 				return rand.NextDouble(min, max);
 			}
-			/*
-			List<CelestialBody> orbitingBodies = new List<CelestialBody>();
-			private int TotalPlanets()
+			List<CelestialBody> cbE = new List<CelestialBody>();
+			cbE.Add(Planetarium.Sun);
+			List<CelestialBody> cbU = cbE[0].OrbitingBodies;
+			while(cbU.Count > 0)
 			{
-				if (orbitingBodies.Contains("Sun")
-				{
-					orbitingBodies.Remove("Sun");
-				}
-				return orbitingBodies.Count;
+				cbU.AddRange(cbU[0].OrbitingBodies);
+				cbE.Add(cbU[0]);
+				cbU.RemoveAt(0);
 			}
-			*/
-			private string GeneratePlanet()
+			private CelestialBody Planet()
 			{
-				swtich(GenNum(1,TotalPLanets()))
-				{
-					case 1:
-						return orbitingBodies<1>;
-					case 2:
-						return "Eve";
-					case 3:
-						return "Mun";
-					case 4:
-						return "Minmus";
-					case 5:
-						return "Duna";
-					case 6: 
-						return "Ike";
-					case 7:
-						return "Dres";
-					case 8:
-						return "Jool";
-					case 9:
-						return "Tylo";
-					case 10:
-						return "Vall";
-					case 11:
-						return "Laythe";
-					case 12:
-						return "Bop";
-					case 13:
-						return "Pol";
-					case 14:
-						return "Eeloo";
-				}
+				private int planetPick = rand.Next(1, cbE.Count);
+				return cbE[planetPick];
 			}
 			/*
 			private double SOIFarReach()
@@ -220,7 +191,7 @@ namespace LudicrousPropulsionSystems
 				//private double SOI = SOIFarReach();
 				//End planet SOI calculations
 				//this.Vessel.orbitDriver.orbit = new Orbit(GenerateInc(), GenerateE(), GenerateSMA(), GenerateLAN(), GenerateArgPE(), GenerateMEP(), GenerateT(), planet);
-				this.Vessel.orbitDriver.orbit = new Orbit.CreateRandomOrbitAround(GeneratePlanet());
+				this.Vessel.orbitDriver.orbit = new Orbit.CreateRandomOrbitAround(Planet());
 				//need to make sure that this actually creates a good random orbit, eccentric, backwards, hugely egg-shaped, all of the above. 
 				warping = false;
 			}
