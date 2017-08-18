@@ -141,7 +141,7 @@ namespace LudicrousPropulsionSystems
 				return cbE[planetPick];
 			}
 			private CelestialBody chosenPlanet = Planet();
-			private double SOIFarReach()
+			private double MaxAlt()
 			{
 				//need to get CB's semimajor axis, mass, parentBody's mass
 				return chosenPlanet.GetSOI;//fixme
@@ -203,7 +203,7 @@ namespace LudicrousPropulsionSystems
 				//private double SOI = SOIFarReach();
 				//End planet SOI calculations
 				//this.Vessel.orbitDriver.orbit = new Orbit(GenerateInc(), GenerateE(), GenerateSMA(), GenerateLAN(), GenerateArgPE(), GenerateMEP(), GenerateT(), planet);
-				this.Vessel.orbitDriver.orbit = new Orbit.CreateRandomOrbitAround(chosenPlanet, );
+				this.Vessel.orbitDriver.orbit = new Orbit.CreateRandomOrbitAround(chosenPlanet, MinAlt(), MaxAlt());
 				//need to make sure that this actually creates a good random orbit, eccentric, backwards, hugely egg-shaped, all of the above. 
 				warping = false;
 			}
