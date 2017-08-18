@@ -140,12 +140,13 @@ namespace LudicrousPropulsionSystems
 				private int planetPick = rand.Next(1, cbE.Count);
 				return cbE[planetPick];
 			}
-			/*
+			
 			private double SOIFarReach()
 			{
 				//need to get CB's semimajor axis, mass, parentBody's mass
-				return /* SMA 
+				return CelestialBody.GetSOI 
 			}
+			/*
 			private double GenerateInc()
 			{
 				return GenNum(-180, 180);
