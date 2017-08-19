@@ -36,7 +36,7 @@ namespace LudicrousPropulsionSystems
 		}
 		private double warpedTime;
 		private bool waiting = false;
-		private double amountNeededForWarp = //constant here, how much tea is consumed per warp
+		private double amountNeededForWarp = 10; //constant here, how much tea is consumed per warp
 		public double Tea()
 		{
 			return FinePrint.Utilities.VesselUtilites.VesselResourceAmount(Tea, ActiveVessel);
@@ -103,6 +103,7 @@ namespace LudicrousPropulsionSystems
 			//private RNGCryptoServiceProvider rand = new RNGCryptoServiceProvider();//Constructor for CryptoInt
 			*/
 			private System.Random rand = new System.Random();//This is constructor for System.Random(used for .Next and .NextDouble)
+			private CelestialBody chosenPlanet = Planet();
 			/*
 			//Crypto Int Generator
 			private int GenNum(int min, int max)
@@ -126,6 +127,11 @@ namespace LudicrousPropulsionSystems
 			{
 				return rand.NextDouble(min, max);
 			}
+			private CelestialBody Planet()
+			{
+				private int planetPick = rand.Next(1, cbE.Count);
+				return cbE[planetPick];
+			}
 			List<CelestialBody> cbE = new List<CelestialBody>();
 			cbE.Add(Planetarium.Sun);
 			List<CelestialBody> cbU = cbE[0].OrbitingBodies;
@@ -135,16 +141,10 @@ namespace LudicrousPropulsionSystems
 				cbE.Add(cbU[0]);
 				cbU.RemoveAt(0);
 			}
-			private CelestialBody Planet()
-			{
-				private int planetPick = rand.Next(1, cbE.Count);
-				return cbE[planetPick];
-			}
-			private CelestialBody chosenPlanet = Planet();
 			private double MaxAlt()
 			{
 				//need to get CB's semimajor axis, mass, parentBody's mass
-				return chosenPlanet.GetSOI;//fixme
+				return chosenPlanet.GetSOI;
 			}
 			private double MinAlt()
 			{
