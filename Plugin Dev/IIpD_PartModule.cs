@@ -103,7 +103,7 @@ namespace LudicrousPropulsionSystems
 			//private RNGCryptoServiceProvider rand = new RNGCryptoServiceProvider();//Constructor for CryptoInt
 			*/
 			private System.Random rand = new System.Random();//This is constructor for System.Random(used for .Next and .NextDouble)
-			private CelestialBody chosenPlanet = Planet();
+			private CelestialBody chosenPlanet;
 			/*
 			//Crypto Int Generator
 			private int GenNum(int min, int max)
@@ -127,9 +127,10 @@ namespace LudicrousPropulsionSystems
 			{
 				return rand.NextDouble(min, max);
 			}
-			private CelestialBody Planet()
+			private CelestialBody RandPlanet()
 			{
 				private int planetPick = rand.Next(1, cbE.Count);
+				chosenPlanet = cbE[planetPick];
 				return cbE[planetPick];
 			}
 			List<CelestialBody> cbE = new List<CelestialBody>();
@@ -198,6 +199,7 @@ namespace LudicrousPropulsionSystems
 			if (TeaAvalible() && warping && HighLogic.LoadedSceneIsFlight)
 			{
 				UpdateWarpStatus();
+				chosenPlanet = RandPlanet();
 				//private string planet = GeneratePlanet();
 				//Planet SOI stuff here
 				//private double SOI = SOIFarReach();
