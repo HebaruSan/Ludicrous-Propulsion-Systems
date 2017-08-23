@@ -102,7 +102,6 @@ namespace LudicrousPropulsionSystems
 			//Should we remove this for speed issues?
 			//private RNGCryptoServiceProvider rand = new RNGCryptoServiceProvider();//Constructor for CryptoInt
 			*/
-			private int planetPick;
 			private System.Random rand = new System.Random();//This is constructor for System.Random(used for .Next and .NextDouble)
 			private CelestialBody chosenPlanet;
 			/*
@@ -128,11 +127,9 @@ namespace LudicrousPropulsionSystems
 			{
 				return rand.NextDouble(min, max);
 			}
-			private CelestialBody RandPlanet()
+			private int PlanetPick()
 			{
-				planetPick = GenNum(1, cbE.Count);
-				chosenPlanet = cbE[planetPick];
-				return cbE[planetPick];
+				
 			}
 			List<CelestialBody> cbE = new List<CelestialBody>();
 			cbE.Add(Planetarium.Sun);
