@@ -1,0 +1,29 @@
+# Initial Build - debian/jessie armhf
+/srv/private/IIpD_PartModule.cs(130,11): error CS1519: Unexpected symbol `(' in class, struct, or interface member declaration
+/srv/private/IIpD_PartModule.cs(130,27): error CS1519: Unexpected symbol `)' in class, struct, or interface member declaration
+/srv/private/IIpD_PartModule.cs(132,8): error CS1519: Unexpected symbol `while' in class, struct, or interface member declaration
+/srv/private/IIpD_PartModule.cs(132,20): error CS1519: Unexpected symbol `>' in class, struct, or interface member declaration
+/srv/private/IIpD_PartModule.cs(134,17): error CS1519: Unexpected symbol `(' in class, struct, or interface member declaration
+/srv/private/IIpD_PartModule.cs(134,22): error CS1519: Unexpected symbol `0' in class, struct, or interface member declaration
+/srv/private/IIpD_PartModule.cs(134,39): error CS1519: Unexpected symbol `)' in class, struct, or interface member declaration
+/srv/private/IIpD_PartModule.cs(135,12): error CS1519: Unexpected symbol `(' in class, struct, or interface member declaration
+/srv/private/IIpD_PartModule.cs(135,17): error CS1519: Unexpected symbol `0' in class, struct, or interface member declaration
+/srv/private/IIpD_PartModule.cs(136,17): error CS1519: Unexpected symbol `(' in class, struct, or interface member declaration
+/srv/private/IIpD_PartModule.cs(138,11): error CS1525: Unexpected symbol `CelestialBody'
+/srv/private/IIpD_PartModule.cs(140,12): error CS1525: Unexpected symbol `int'
+/srv/private/IIpD_PartModule.cs(140,38): error CS1525: Unexpected symbol `('
+/srv/private/IIpD_PartModule.cs(140,51): error CS1525: Unexpected symbol `)'
+/srv/private/IIpD_PartModule.cs(141,15): error CS1514: Unexpected symbol `[', expecting `.' or `{'
+/srv/private/IIpD_PartModule.cs(141,26): error CS1525: Unexpected symbol `;'
+Compilation failed: 16 error(s), 0 warnings
+
+# Build 08/23/17 - darwin/16.7.0 amd64
+IIpD_PartModule.cs(132,4): error CS1525: Unexpected symbol `private'
+IIpD_PartModule.cs(137,11): error CS1519: Unexpected symbol `(' in class, struct, or interface member declaration
+IIpD_PartModule.cs(137,27): error CS1519: Unexpected symbol `)' in class, struct, or interface member declaration
+Compilation failed: 3 error(s), 0 warnings
+
+# Build 08/23/17 #2 - darwin/16.7.0 amd64
+IIpD_PartModule.cs(138,11): error CS1519: Unexpected symbol `(' in class, struct, or interface member declaration
+IIpD_PartModule.cs(138,27): error CS1519: Unexpected symbol `)' in class, struct, or interface member declaration
+Compilation failed: 2 error(s), 0 warnings
