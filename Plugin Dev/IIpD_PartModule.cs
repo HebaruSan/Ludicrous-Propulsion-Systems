@@ -59,13 +59,13 @@ namespace LudicrousPropulsionSystems
 			WarpStatus();
 		}
 		private bool partHasBeenDestroyed = false;
-		public void Part.onPartDesroyed()
+		public void onPartDesroyed()
 		{
 			UpdateWarpStatus();
 			TeaAvalible();
 			partHasBeenDestroyed = true;
 		}
-		public void Part.FixedUpdate()
+		public void FixedUpdate()
 		{
 			if (HighLogic.LoadedSceneIsFlight)
 			{
