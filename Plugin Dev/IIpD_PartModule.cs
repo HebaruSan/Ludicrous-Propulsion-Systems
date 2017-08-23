@@ -136,12 +136,6 @@ namespace LudicrousPropulsionSystems
 			List<CelestialBody> cbE = new List<CelestialBody>();
 			cbE.Add(Planetarium.Sun);
 			List<CelestialBody> cbU = cbE[0].OrbitingBodies;
-			while(cbU.Count > 0)
-			{
-				cbU.AddRange(cbU[0].OrbitingBodies);
-				cbE.Add(cbU[0]);
-				cbU.RemoveAt(0);
-			}
 			private double MaxAlt()
 			{
 				//need to get CB's semimajor axis, mass, parentBody's mass
@@ -199,6 +193,12 @@ namespace LudicrousPropulsionSystems
 			if (TeaAvalible() && warping && HighLogic.LoadedSceneIsFlight)
 			{
 				UpdateWarpStatus();
+				while(cbU.Count > 0)
+				{
+					cbU.AddRange(cbU[0].OrbitingBodies);
+					cbE.Add(cbU[0]);
+					cbU.RemoveAt(0);
+				}
 				chosenPlanet = RandPlanet();
 				//private string planet = GeneratePlanet();
 				//Planet SOI stuff here
