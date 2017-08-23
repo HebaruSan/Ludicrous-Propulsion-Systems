@@ -22,3 +22,8 @@ IIpD_PartModule.cs(132,4): error CS1525: Unexpected symbol `private'
 IIpD_PartModule.cs(137,11): error CS1519: Unexpected symbol `(' in class, struct, or interface member declaration
 IIpD_PartModule.cs(137,27): error CS1519: Unexpected symbol `)' in class, struct, or interface member declaration
 Compilation failed: 3 error(s), 0 warnings
+
+# Build 08/23/17 #2 - darwin/16.7.0 amd64
+IIpD_PartModule.cs(138,11): error CS1519: Unexpected symbol `(' in class, struct, or interface member declaration
+IIpD_PartModule.cs(138,27): error CS1519: Unexpected symbol `)' in class, struct, or interface member declaration
+Compilation failed: 2 error(s), 0 warnings
