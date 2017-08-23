@@ -102,6 +102,8 @@ namespace LudicrousPropulsionSystems
 			//Should we remove this for speed issues?
 			//private RNGCryptoServiceProvider rand = new RNGCryptoServiceProvider();//Constructor for CryptoInt
 			*/
+			private bool generated = false;
+			private int planetPick;
 			private System.Random rand = new System.Random();//This is constructor for System.Random(used for .Next and .NextDouble)
 			private CelestialBody chosenPlanet;
 			/*
@@ -131,9 +133,6 @@ namespace LudicrousPropulsionSystems
 			{
 				
 			}
-			List<CelestialBody> cbE = new List<CelestialBody>();
-			cbE.Add(Planetarium.Sun);
-			List<CelestialBody> cbU = cbE[0].OrbitingBodies;
 			private double MaxAlt()
 			{
 				//need to get CB's semimajor axis, mass, parentBody's mass
@@ -188,15 +187,22 @@ namespace LudicrousPropulsionSystems
 		*/
 		public void OnFixedUpdate()
 		{
-			if (TeaAvalible() && warping && HighLogic.LoadedSceneIsFlight)
+			if (!generated)
 			{
-				UpdateWarpStatus();
+				List<CelestialBody> cbE = new List<CelestialBody>();
+				cbE.Add(Planetarium.Sun);
+				List<CelestialBody> cbU = cbE[0].OrbitingBodies;
 				while(cbU.Count > 0)
 				{
 					cbU.AddRange(cbU[0].OrbitingBodies);
 					cbE.Add(cbU[0]);
 					cbU.RemoveAt(0);
 				}
+				PlanetPick()
+			}
+			if (TeaAvalible() && warping && HighLogic.LoadedSceneIsFlight)
+			{
+				UpdateWarpStatus();
 				chosenPlanet = RandPlanet();
 				//private string planet = GeneratePlanet();
 				//Planet SOI stuff here
@@ -206,6 +212,7 @@ namespace LudicrousPropulsionSystems
 				this.Vessel.orbitDriver.orbit = new Orbit.CreateRandomOrbitAround(chosenPlanet, MinAlt(), MaxAlt());
 				//need to make sure that this actually creates a good random orbit, eccentric, backwards, hugely egg-shaped, all of the above. 
 				warping = false;
+				generated = false;
 			}
 		}
 	}
