@@ -1,3 +1,4 @@
+# Initial Build - debian/jessie armhf
 /srv/private/IIpD_PartModule.cs(130,11): error CS1519: Unexpected symbol `(' in class, struct, or interface member declaration
 /srv/private/IIpD_PartModule.cs(130,27): error CS1519: Unexpected symbol `)' in class, struct, or interface member declaration
 /srv/private/IIpD_PartModule.cs(132,8): error CS1519: Unexpected symbol `while' in class, struct, or interface member declaration
@@ -15,3 +16,9 @@
 /srv/private/IIpD_PartModule.cs(141,15): error CS1514: Unexpected symbol `[', expecting `.' or `{'
 /srv/private/IIpD_PartModule.cs(141,26): error CS1525: Unexpected symbol `;'
 Compilation failed: 16 error(s), 0 warnings
+
+# Build 08/23/17 - darwin/16.7.0 amd64
+IIpD_PartModule.cs(132,4): error CS1525: Unexpected symbol `private'
+IIpD_PartModule.cs(137,11): error CS1519: Unexpected symbol `(' in class, struct, or interface member declaration
+IIpD_PartModule.cs(137,27): error CS1519: Unexpected symbol `)' in class, struct, or interface member declaration
+Compilation failed: 3 error(s), 0 warnings
