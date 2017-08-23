@@ -130,7 +130,7 @@ namespace LudicrousPropulsionSystems
 			}
 			private CelestialBody RandPlanet()
 			{
-				planetPick = rand.Next(1, cbE.Count);
+				planetPick = GenNum(1, cbE.Count);
 				chosenPlanet = cbE[planetPick];
 				return cbE[planetPick];
 			}
