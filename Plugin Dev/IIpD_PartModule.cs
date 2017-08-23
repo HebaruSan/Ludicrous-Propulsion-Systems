@@ -129,9 +129,9 @@ namespace LudicrousPropulsionSystems
 			{
 				return rand.NextDouble(min, max);
 			}
-			private int PlanetPick()
+			private void PlanetPick()
 			{
-				
+				planetPick = GenNum(1, cbE.Count);
 			}
 			private double MaxAlt()
 			{
@@ -198,7 +198,7 @@ namespace LudicrousPropulsionSystems
 					cbE.Add(cbU[0]);
 					cbU.RemoveAt(0);
 				}
-				PlanetPick()
+				PlanetPick();
 			}
 			if (TeaAvalible() && warping && HighLogic.LoadedSceneIsFlight)
 			{
