@@ -135,7 +135,13 @@ namespace LudicrousPropulsionSystems
 			}
 			private void ChoosePlanet()
 			{
-				
+				for (int z = 0, i <= cbE.Count, i++)
+				{
+					if (i == planetPick)
+					{
+						chosenPlanet = cbE[i];
+					}
+				}
 			}
 			private double MaxAlt()
 			{
@@ -205,6 +211,7 @@ namespace LudicrousPropulsionSystems
 					cbU.RemoveAt(0);
 				}
 				PlanetPick();
+				ChoosePlanet();
 			}
 			if (teaAvalible && warping && HighLogic.LoadedSceneIsFlight)
 			{
