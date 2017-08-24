@@ -19,21 +19,22 @@ namespace LudicrousPropulsionSystems
 		}
 		private double warpedTime;
 		private bool waiting = false;
+		private bool teaAvalible = false;
 		private double amountNeededForWarp = 10; //constant here, how much tea is consumed per warp
 		public double Tea()
 		{
-			return FinePrint.Utilities.VesselUtilites.VesselResourceAmount(Tea, ActiveVessel);
+			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, ActiveVessel);
 		}
-		public bool TeaAvailable()
+		public void TeaAvailable()
 		{
 			if (Tea() >= amountNeededForWarp)
-				return true;
+				teaAvalible = true;
 			else
-				return false;
+				teaAvalible = false;
 		}
 		public void UpdateWarpStatus()
 		{
-			if (TeaAvalible)
+			if (teaAvalible)
 			{
 				WarpStatus = "Ready To Warp!";
 			}
@@ -41,7 +42,7 @@ namespace LudicrousPropulsionSystems
 			{
 				WarpStatus = "Warping";
 			}
-			else if (!TeaAvalible())
+			else if (!teaAvalible)
 			{
 				WarpStatus = "Warp Unavalible";
 			}
@@ -62,12 +63,13 @@ namespace LudicrousPropulsionSystems
 			if (HighLogic.LoadedSceneIsFlight)
 			{
 				UpdateWarpStatus();
+				TeaAvalible();
 				if (warping)
 				{
-					if (TeaAvalible)
-						continue;
-					else
+					if (!teaAvalible)
 						return;
+					else
+						continue;
 				}
 				if (!waiting)
 				{
