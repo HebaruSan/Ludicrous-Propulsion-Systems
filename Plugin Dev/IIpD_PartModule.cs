@@ -49,11 +49,6 @@ namespace LudicrousPropulsionSystems
 			else
 				return false;
 		}
-		public void Awake()
-		{
-			warping = false;
-			UpdateWarpStatus();
-		}
 		public void UpdateWarpStatus()
 		{
 			WarpStatus();
