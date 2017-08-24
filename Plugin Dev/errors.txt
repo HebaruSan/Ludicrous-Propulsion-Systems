@@ -27,3 +27,27 @@ Compilation failed: 3 error(s), 0 warnings
 IIpD_PartModule.cs(138,11): error CS1519: Unexpected symbol `(' in class, struct, or interface member declaration
 IIpD_PartModule.cs(138,27): error CS1519: Unexpected symbol `)' in class, struct, or interface member declaration
 Compilation failed: 2 error(s), 0 warnings
+
+8/23/17, 5:10 p.m.
+IIpD_PartModule.cs(14,4): error CS0592: The attribute `KSPField' is not valid on this declaration type. It is valid on `property, indexer, field' declarations only
+IIpD_PartModule.cs(17,8): error CS0103: The name `TeaAvalible' does not exist in the current context
+IIpD_PartModule.cs(25,14): error CS0103: The name `TeaAvalible' does not exist in the current context
+IIpD_PartModule.cs(43,31): error CS0234: The type or namespace name `VesselUtilites' does not exist in the namespace `FinePrint.Utilities'. Are you missing an assembly reference?
+IIpD_PartModule.cs(60,4): error CS0103: The name `TeaAvalible' does not exist in the current context
+IIpD_PartModule.cs(70,10): error CS0103: The name `TeaAvalible' does not exist in the current context
+IIpD_PartModule.cs(71,7): error CS0139: No enclosing loop out of which to break or continue
+IIpD_PartModule.cs(126,17): error CS1501: No overload for method `NextDouble' takes `2' arguments
+/usr/lib/mono/4.5/mscorlib.dll (Location of the symbol related to previous error)
+IIpD_PartModule.cs(130,28): error CS0103: The name `cbE' does not exist in the current context
+IIpD_PartModule.cs(135,25): error CS1061: Type `CelestialBody' does not contain a definition for `GetSOI' and no extension method `GetSOI' of type `CelestialBody' could be found. Are you missing an assembly reference?
+/srv/public/dependencies/Assembly-CSharp.dll (Location of the symbol related to previous error)
+IIpD_PartModule.cs(189,25): error CS0120: An object reference is required to access non-static member `Planetarium.Sun'
+IIpD_PartModule.cs(190,38): error CS1061: Type `CelestialBody' does not contain a definition for `OrbitingBodies' and no extension method `OrbitingBodies' of type `CelestialBody' could be found. Are you missing an assembly reference?
+/srv/public/dependencies/Assembly-CSharp.dll (Location of the symbol related to previous error)
+IIpD_PartModule.cs(193,26): error CS1061: Type `CelestialBody' does not contain a definition for `OrbitingBodies' and no extension method `OrbitingBodies' of type `CelestialBody' could be found. Are you missing an assembly reference?
+/srv/public/dependencies/Assembly-CSharp.dll (Location of the symbol related to previous error)
+IIpD_PartModule.cs(199,8): error CS0103: The name `TeaAvalible' does not exist in the current context
+IIpD_PartModule.cs(201,5): error CS0103: The name `UpdateWarpStatus' does not exist in the current context
+IIpD_PartModule.cs(202,20): error CS0103: The name `RandPlanet' does not exist in the current context
+IIpD_PartModule.cs(208,47): error CS0118: `Orbit.CreateRandomOrbitAround(CelestialBody)' is a `method group' but a `type' was expected
+IIpD_PartModule.cs(210,5): error CS0103: The name `warping' does not exist in the current context
