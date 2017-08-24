@@ -23,7 +23,7 @@ namespace LudicrousPropulsionSystems
 		private double amountNeededForWarp = 10; //constant here, how much tea is consumed per warp
 		public double Tea()
 		{
-			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, ActiveVessel);
+			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, activeVessel);
 		}
 		public void TeaAvailable()
 		{
