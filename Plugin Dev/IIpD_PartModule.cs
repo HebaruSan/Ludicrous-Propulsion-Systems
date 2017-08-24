@@ -21,10 +21,11 @@ namespace LudicrousPropulsionSystems
 		private double warpedTime;
 		private bool waiting = false;
 		private bool teaAvalible = false;
+		private Vessel ves = Part.vessel;
 		private double amountNeededForWarp = 10; //constant here, how much tea is consumed per warp, will change to include cfg file amounts
 		public double Tea()
 		{
-			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, Vessel);
+			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, ves);
 		}
 		public void TeaAvalible()
 		{
@@ -127,7 +128,7 @@ namespace LudicrousPropulsionSystems
 			}
 			private double GenDouble(double min, double max)//Not crypto, but we dont really need that here
 			{
-				return rand.NextDouble(min, max);
+				return rand.NextDouble() * (max - min) + min;
 			}
 			private void PlanetPick()
 			{
