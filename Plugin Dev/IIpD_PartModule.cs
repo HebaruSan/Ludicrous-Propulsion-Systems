@@ -24,14 +24,21 @@ namespace LudicrousPropulsionSystems
 		private double amountNeededForWarp = 10; //constant here, how much tea is consumed per warp, will change to include cfg file amounts
 		public double Tea()
 		{
-			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, activeVessel);
+			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, Vessel v);
 		}
-		public void TeaAvailable()
+		public void TeaAvalible()
 		{
 			if (Tea() >= amountNeededForWarp)
 				teaAvalible = true;
 			else
 				teaAvalible = false;
+		}
+		public bool WarpAvalible()
+		{
+			if (teaAvalible == true && warping == false)
+				return true;
+			else
+				return false;
 		}
 		public void UpdateWarpStatus()
 		{
@@ -65,12 +72,9 @@ namespace LudicrousPropulsionSystems
 			{
 				UpdateWarpStatus();
 				TeaAvalible();
-				if (warping)
+				if(warping)
 				{
-					if (!teaAvalible)
-						return;
-					else
-						continue;
+				UpdateWarpStatus();
 				}
 				if (!waiting)
 				{
@@ -129,6 +133,10 @@ namespace LudicrousPropulsionSystems
 			{
 				planetPick = GenNum(1, cbE.Count);
 			}
+			private void ChoosePlanet()
+			{
+				
+			}
 			private double MaxAlt()
 			{
 				//need to get CB's semimajor axis, mass, parentBody's mass
@@ -185,18 +193,20 @@ namespace LudicrousPropulsionSystems
 		{
 			if (!generated)
 			{
+				CelestialBody sun = new CelestialBody();
+				sun = Planetarium.Sun;
 				List<CelestialBody> cbE = new List<CelestialBody>();
-				cbE.Add(Planetarium.Sun);
-				List<CelestialBody> cbU = cbE[0].OrbitingBodies;
+				cbE.Add(sun);
+				List<CelestialBody> cbU = cbE[0].orbitingBodies;
 				while(cbU.Count > 0)
 				{
-					cbU.AddRange(cbU[0].OrbitingBodies);
+					cbU.AddRange(cbU[0].orbitingBodies);
 					cbE.Add(cbU[0]);
 					cbU.RemoveAt(0);
 				}
 				PlanetPick();
 			}
-			if (TeaAvalible() && warping && HighLogic.LoadedSceneIsFlight)
+			if (teaAvalible && warping && HighLogic.LoadedSceneIsFlight)
 			{
 				UpdateWarpStatus();
 				chosenPlanet = RandPlanet();
