@@ -49,7 +49,7 @@ namespace LudicrousPropulsionSystems
 			else
 				return false;
 		}
-		public void Part.Awake()
+		public void Awake()
 		{
 			warping = false;
 			UpdateWarpStatus();
