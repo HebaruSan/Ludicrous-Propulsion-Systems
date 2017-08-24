@@ -12,25 +12,7 @@ namespace LudicrousPropulsionSystems
 		public bool warping = false;
 		
 		[KSPField(isPersistant = false, guiActive = true, guiName = "Warp Status")]
-		public string WarpStatus()
-		{
-			if (TeaAvalible)
-			{
-				return "Ready To Warp!";
-			}
-			else if (warping)
-			{
-				return "Warping";
-			}
-			else if (!TeaAvalible())
-			{
-				return "Warp Unavalible";
-			}
-			else
-			{
-				return "Warped!";
-			}
-		}
+		public string WarpStatus;
 		private double time()
 		{
 			return Planetarium.GetUniversalTime();
@@ -51,7 +33,22 @@ namespace LudicrousPropulsionSystems
 		}
 		public void UpdateWarpStatus()
 		{
-			WarpStatus();
+			if (TeaAvalible)
+			{
+				WarpStatus = "Ready To Warp!";
+			}
+			else if (warping)
+			{
+				WarpStatus = "Warping";
+			}
+			else if (!TeaAvalible())
+			{
+				WarpStatus = "Warp Unavalible";
+			}
+			else
+			{
+				WarpStatus = "Warped!";
+			}
 		}
 		private bool partHasBeenDestroyed = false;
 		public void onPartDesroyed()
