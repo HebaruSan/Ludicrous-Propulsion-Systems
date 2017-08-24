@@ -24,7 +24,7 @@ namespace LudicrousPropulsionSystems
 		private double amountNeededForWarp = 10; //constant here, how much tea is consumed per warp, will change to include cfg file amounts
 		public double Tea()
 		{
-			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, Vessel v);
+			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, Vessel);
 		}
 		public void TeaAvalible()
 		{
@@ -135,7 +135,7 @@ namespace LudicrousPropulsionSystems
 			}
 			private void ChoosePlanet()
 			{
-				for (int z = 0, i <= cbE.Count, i++)
+				for (int z = 0; i <= cbE.Count; i++)
 				{
 					if (i == planetPick)
 					{
