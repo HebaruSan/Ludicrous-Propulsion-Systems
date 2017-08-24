@@ -76,3 +76,26 @@ IIpD_PartModule.cs(201,20): error CS0103: The name `RandPlanet' does not exist i
 IIpD_PartModule.cs(207,47): error CS0118: `Orbit.CreateRandomOrbitAround(CelestialBody)' is a `method group' but a `type' was expected
 IIpD_PartModule.cs(209,5): error CS0103: The name `warping' does not exist in the current context
 Compilation failed: 17 error(s), 0 warnings
+
+8/24/17, 1:20p.m.
+IIpD_PartModule.cs(28,47): error CS1502: The best overloaded method match for `FinePrint.Utilities.VesselUtilities.VesselResourceAmount(string, Vessel)' has some invalid arguments
+/srv/public/dependencies/Assembly-CSharp.dll (Location of the symbol related to previous error)
+IIpD_PartModule.cs(28,68): error CS1503: Argument `#1' cannot convert `method group' expression to type `string'
+IIpD_PartModule.cs(24,29): error CS0236: A field initializer cannot reference the nonstatic field, method, or property `Part.vessel'
+IIpD_PartModule.cs(135,28): error CS0103: The name `cbE' does not exist in the current context
+IIpD_PartModule.cs(139,21): error CS0103: The name `i' does not exist in the current context
+IIpD_PartModule.cs(139,26): error CS0103: The name `cbE' does not exist in the current context
+IIpD_PartModule.cs(141,10): error CS0103: The name `i' does not exist in the current context
+IIpD_PartModule.cs(143,22): error CS0103: The name `cbE' does not exist in the current context
+IIpD_PartModule.cs(139,37): error CS0103: The name `i' does not exist in the current context
+IIpD_PartModule.cs(139,38): error CS1059: The operand of an increment or decrement operator must be a variable, property or indexer
+IIpD_PartModule.cs(150,25): error CS1061: Type `CelestialBody' does not contain a definition for `GetSOI' and no extension method `GetSOI' of type `CelestialBody' could be found. Are you missing an assembly reference?
+/srv/public/dependencies/Assembly-CSharp.dll (Location of the symbol related to previous error)
+IIpD_PartModule.cs(204,23): error CS0120: An object reference is required to access non-static member `Planetarium.Sun'
+IIpD_PartModule.cs(217,8): error CS0103: The name `teaAvalible' does not exist in the current context
+IIpD_PartModule.cs(217,23): error CS0103: The name `warping' does not exist in the current context
+IIpD_PartModule.cs(219,5): error CS0103: The name `UpdateWarpStatus' does not exist in the current context
+IIpD_PartModule.cs(220,20): error CS0103: The name `RandPlanet' does not exist in the current context
+IIpD_PartModule.cs(226,47): error CS0118: `Orbit.CreateRandomOrbitAround(CelestialBody)' is a `method group' but a `type' was expected
+IIpD_PartModule.cs(228,5): error CS0103: The name `warping' does not exist in the current context
+Compilation failed: 18 error(s), 0 warnings
