@@ -13,14 +13,15 @@ namespace LudicrousPropulsionSystems
 		
 		[KSPField(isPersistant = false, guiActive = true, guiName = "Warp Status")]
 		public string WarpStatus;
-		private double time()
+		
+		private double Time()
 		{
 			return Planetarium.GetUniversalTime();
 		}
 		private double warpedTime;
 		private bool waiting = false;
 		private bool teaAvalible = false;
-		private double amountNeededForWarp = 10; //constant here, how much tea is consumed per warp
+		private double amountNeededForWarp = 10; //constant here, how much tea is consumed per warp, will change to include cfg file amounts
 		public double Tea()
 		{
 			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, activeVessel);
@@ -73,12 +74,12 @@ namespace LudicrousPropulsionSystems
 				}
 				if (!waiting)
 				{
-					warpedTime = time();
+					warpedTime = Time();
 					waiting = true;
 				}
 				if (waiting)
 				{
-					if (warpedTime <= (time() - 2))
+					if (warpedTime <= (Time() - 2))
 					{
 						waiting = false;
 						UpdateWarpStatus();
