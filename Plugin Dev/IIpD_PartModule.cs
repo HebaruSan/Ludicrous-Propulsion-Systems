@@ -21,11 +21,12 @@ namespace LudicrousPropulsionSystems
 		private double warpedTime;
 		private bool waiting = false;
 		private bool teaAvalible = false;
-		private Vessel ves = Part.vessel;
+		private Vessel ves;
 		private double amountNeededForWarp = 10; //constant here, how much tea is consumed per warp, will change to include cfg file amounts
 		public double Tea()
 		{
-			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, ves);
+			ves = Part.Vessel;
+			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, FlightGlobals.ActiveVessel());
 		}
 		public void TeaAvalible()
 		{
@@ -132,15 +133,17 @@ namespace LudicrousPropulsionSystems
 			}
 			private void PlanetPick()
 			{
+				if (!generated)
+					CreatePlanetList();
 				planetPick = GenNum(1, cbE.Count);
 			}
 			private void ChoosePlanet()
 			{
-				for (int z = 0; i <= cbE.Count; i++)
+				for (int z = 0; z < cbE.Count; z++)
 				{
-					if (i == planetPick)
+					if (z == planetPick)
 					{
-						chosenPlanet = cbE[i];
+						chosenPlanet = cbE[z];
 					}
 				}
 			}
@@ -158,6 +161,20 @@ namespace LudicrousPropulsionSystems
 				else
 				{
 					return (chosenPlanet.Radius + 1000);
+				}
+			}
+			public void CreatePlanetList()
+			{
+				CelestialBody sun = new CelestialBody();
+				sun = Planetarium.Sun;
+				List<CelestialBody> cbE = new List<CelestialBody>();
+				cbE.Add(sun);
+				List<CelestialBody> cbU = cbE[0].orbitingBodies;
+				while(cbU.Count > 0)
+				{
+					cbU.AddRange(cbU[0].orbitingBodies);
+					cbE.Add(cbU[0]);
+					cbU.RemoveAt(0);
 				}
 			}
 			/*
@@ -200,19 +217,14 @@ namespace LudicrousPropulsionSystems
 		{
 			if (!generated)
 			{
-				CelestialBody sun = new CelestialBody();
-				sun = Planetarium.Sun;
-				List<CelestialBody> cbE = new List<CelestialBody>();
-				cbE.Add(sun);
-				List<CelestialBody> cbU = cbE[0].orbitingBodies;
-				while(cbU.Count > 0)
-				{
-					cbU.AddRange(cbU[0].orbitingBodies);
-					cbE.Add(cbU[0]);
-					cbU.RemoveAt(0);
-				}
+				CreatePlanetList();
 				PlanetPick();
 				ChoosePlanet();
+				while (chosenPlanet == FlightGlobals.currentMainBody)
+				{
+					PlanetPick();
+					ChoosePlanet();
+				}
 			}
 			if (teaAvalible && warping && HighLogic.LoadedSceneIsFlight)
 			{
