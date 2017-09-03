@@ -169,10 +169,10 @@ namespace LudicrousPropulsionSystems
 			Where a = semimajor axis, e = eccentricity, m = mass(child body), and M = mass(parent body)
 			*/
 			
-			private double obtsMA;
-			private double obtEcc;
-			private double childMass;
-			private double parentMass;
+			double obtsMA;
+			double obtEcc;
+			double childMass;
+			double parentMass;
 			
 			Orbit cbOrbit = new Orbit();
 			cbOrbit = chosenPlanet.GetOrbit();
