@@ -25,8 +25,7 @@ namespace LudicrousPropulsionSystems
 		private double amountNeededForWarp = 10; //constant here, how much tea is consumed per warp, will change to include cfg file amounts
 		public double Tea()
 		{
-			ves = Part.Vessel;
-			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, FlightGlobals.ActiveVessel());
+			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, FlightGlobals.ActiveVessel);//NOT METHOD, REMOVE
 		}
 		public void TeaAvalible()
 		{
@@ -131,6 +130,21 @@ namespace LudicrousPropulsionSystems
 			{
 				return rand.NextDouble() * (max - min) + min;
 			}
+			public void CreatePlanetList()
+			{
+				CelestialBody sun = new CelestialBody();
+				Planetarium planetarium = new Planetarium();
+				sun = planetarium.Sun;
+				List<CelestialBody> cbE = new List<CelestialBody>();
+				cbE.Add(sun);
+				List<CelestialBody> cbU = cbE[0].orbitingBodies;
+				while(cbU.Count > 0)
+				{
+					cbU.AddRange(cbU[0].orbitingBodies);
+					cbE.Add(cbU[0]);
+					cbU.RemoveAt(0);
+				}
+			}
 			private void PlanetPick()
 			{
 				if (!generated)
@@ -150,7 +164,8 @@ namespace LudicrousPropulsionSystems
 			private double MaxAlt()
 			{
 				//need to get CB's semimajor axis, mass, parentBody's mass
-				return chosenPlanet.GetSOI;
+				return chosenPlanet.GetSOI;//FIX, does not exist
+				//TODO calculate SOI using "hill sphere" methods?
 			}
 			private double MinAlt()
 			{
@@ -161,20 +176,6 @@ namespace LudicrousPropulsionSystems
 				else
 				{
 					return (chosenPlanet.Radius + 1000);
-				}
-			}
-			public void CreatePlanetList()
-			{
-				CelestialBody sun = new CelestialBody();
-				sun = Planetarium.Sun;
-				List<CelestialBody> cbE = new List<CelestialBody>();
-				cbE.Add(sun);
-				List<CelestialBody> cbU = cbE[0].orbitingBodies;
-				while(cbU.Count > 0)
-				{
-					cbU.AddRange(cbU[0].orbitingBodies);
-					cbE.Add(cbU[0]);
-					cbU.RemoveAt(0);
 				}
 			}
 			/*
@@ -226,10 +227,9 @@ namespace LudicrousPropulsionSystems
 				}
 				generated = true;
 			}
-			if (teaAvalible && warping && HighLogic.LoadedSceneIsFlight)
+			if (InfiniteImprobabilityDrive.teaAvalible && InfiniteImprobabilityDrive.warping && HighLogic.LoadedSceneIsFlight)
 			{
-				UpdateWarpStatus();
-				chosenPlanet = RandPlanet();
+				InfiniteImprobabilityDrive.UpdateWarpStatus();
 				//private string planet = GeneratePlanet();
 				//Planet SOI stuff here
 				//private double SOI = SOIFarReach();
@@ -237,7 +237,7 @@ namespace LudicrousPropulsionSystems
 				//this.Vessel.orbitDriver.orbit = new Orbit(GenerateInc(), GenerateE(), GenerateSMA(), GenerateLAN(), GenerateArgPE(), GenerateMEP(), GenerateT(), planet);
 				this.Vessel.orbitDriver.orbit = new Orbit.CreateRandomOrbitAround(chosenPlanet, MinAlt(), MaxAlt());
 				//need to make sure that this actually creates a good random orbit, eccentric, backwards, hugely egg-shaped, all of the above. 
-				warping = false;
+				InfiniteImprobabilityDrive.warping = false;
 				generated = false;
 			}
 		}

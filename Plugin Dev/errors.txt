@@ -99,3 +99,23 @@ IIpD_PartModule.cs(220,20): error CS0103: The name `RandPlanet' does not exist i
 IIpD_PartModule.cs(226,47): error CS0118: `Orbit.CreateRandomOrbitAround(CelestialBody)' is a `method group' but a `type' was expected
 IIpD_PartModule.cs(228,5): error CS0103: The name `warping' does not exist in the current context
 Compilation failed: 18 error(s), 0 warnings
+
+9/1, 9:40p.m.
+IIpD_PartModule.cs(28,15): error CS0117: `Part' does not contain a definition fo             r `Vessel'
+/srv/public/dependencies/Assembly-CSharp.dll (Location of the symbol related to              previous error)
+IIpD_PartModule.cs(29,87): error CS1955: The member `FlightGlobals.ActiveVessel'              cannot be used as method or delegate
+IIpD_PartModule.cs(29,47): error CS1502: The best overloaded method match for `F             inePrint.Utilities.VesselUtilities.VesselResourceAmount(string, Vessel)' has som             e invalid arguments
+/srv/public/dependencies/Assembly-CSharp.dll (Location of the symbol related to              previous error)
+IIpD_PartModule.cs(29,68): error CS1503: Argument `#1' cannot convert `method gr             oup' expression to type `string'
+IIpD_PartModule.cs(138,28): error CS0103: The name `cbE' does not exist in the c             urrent context
+IIpD_PartModule.cs(142,25): error CS0103: The name `cbE' does not exist in the c             urrent context
+IIpD_PartModule.cs(146,22): error CS0103: The name `cbE' does not exist in the c             urrent context
+IIpD_PartModule.cs(153,25): error CS1061: Type `CelestialBody' does not contain              a definition for `GetSOI' and no extension method `GetSOI' of type `CelestialBod             y' could be found. Are you missing an assembly reference?
+/srv/public/dependencies/Assembly-CSharp.dll (Location of the symbol related to              previous error)
+IIpD_PartModule.cs(169,23): error CS0120: An object reference is required to acc             ess non-static member `Planetarium.Sun'
+IIpD_PartModule.cs(229,8): error CS0103: The name `teaAvalible' does not exist i             n the current context
+IIpD_PartModule.cs(229,23): error CS0103: The name `warping' does not exist in t             he current context
+IIpD_PartModule.cs(231,5): error CS0103: The name `UpdateWarpStatus' does not ex             ist in the current context
+IIpD_PartModule.cs(232,20): error CS0103: The name `RandPlanet' does not exist i             n the current context
+IIpD_PartModule.cs(238,47): error CS0118: `Orbit.CreateRandomOrbitAround(Celesti             alBody)' is a `method group' but a `type' was expected
+IIpD_PartModule.cs(240,5): error CS0103: The name `warping' does not exist in th             e current context
