@@ -164,8 +164,16 @@ namespace LudicrousPropulsionSystems
 			private double MaxAlt()
 			{
 				//need to get CB's semimajor axis, mass, parentBody's mass
-				return chosenPlanet.GetSOI;//FIX, does not exist
+				//return chosenPlanet.GetSOI;//FIX, does not exist
 				//TODO calculate SOI using "hill sphere" methods?
+				/*
+				Hill Sphere is a method of calculating SOI. This is done by getting the radius through the calculation r = a(1 - e)CBRT(m/3M)
+				Where a = semimajor axis, e = eccentricity, m = mass(child body), and M = mass(parent body)
+				
+				Orbit cbOrbit = new Orbit();
+				cbOrbit = chosenPlanet.GetOrbit();
+				
+				*/
 			}
 			private double MinAlt()
 			{
@@ -178,42 +186,6 @@ namespace LudicrousPropulsionSystems
 					return (chosenPlanet.Radius + 1000);
 				}
 			}
-			/*
-			private double GenerateInc()
-			{
-				return GenNum(-180, 180);
-			}
-			private double GenerateE()
-			{
-				private double T = 
-				private double n = (360/T);//what the averge rate of sweep is
-				private double r = time();//universal time
-				private double t = r + GenDouble(100, 500);//arbitrary time after pericenter
-				private double M = n*(t-
-				return M;
-			}
-			private double GenerateSMA()
-			{
-				
-			}
-			private double GenerateLAN()
-			{
-			
-			}
-			private double GenerateArgPE()
-			{
-			
-			}
-			private double GenerateMEP()
-			{
-			
-			}
-			private double GenerateT()
-			{
-			
-			}
-		}
-		*/
 		public void OnFixedUpdate()
 		{
 			if (!generated)
