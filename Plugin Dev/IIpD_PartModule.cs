@@ -20,30 +20,35 @@ namespace LudicrousPropulsionSystems
 		}
 		private double warpedTime;
 		private bool waiting = false;
-		private bool teaAvalible = false;
-		private Vessel ves;
 		private double amountNeededForWarp = 10; //TODO, constant here: how much tea is consumed per warp, change to include cfg file amounts
-		public double Tea()
+		public static double Tea()
 		{
-			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, FlightGlobals.ActiveVessel);//FIXME1, FIXME2
+			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount("Tea", FlightGlobals.ActiveVessel);//FIXME1, FIXME2
 		}
-		public void TeaAvalible()
+		public static bool TeaAvalible()
 		{
 			if (Tea() >= amountNeededForWarp)
-				teaAvalible = true;
-			else
-				teaAvalible = false;
-		}
-		public bool WarpAvalible()
-		{
-			if (teaAvalible == true && warping == false)
 				return true;
 			else
 				return false;
 		}
-		public void UpdateWarpStatus()
+		public static bool Warping()
 		{
-			if (teaAvalible)
+			if (warping)
+				return true;
+			else
+				return false;
+		}
+		public static bool WarpAvalible()
+		{
+			if (TeaAvalible() == true && Warping() == false)
+				return true;
+			else
+				return false;
+		}
+		public static void UpdateWarpStatus()
+		{
+			if (TeaAvalible())
 			{
 				WarpStatus = "Ready To Warp!";
 			}
@@ -51,7 +56,7 @@ namespace LudicrousPropulsionSystems
 			{
 				WarpStatus = "Warping";
 			}
-			else if (!teaAvalible)
+			else if (!TeaAvalible())
 			{
 				WarpStatus = "Warp Unavalible";
 			}
@@ -104,6 +109,10 @@ namespace LudicrousPropulsionSystems
 		private int planetPick;
 		private System.Random rand = new System.Random();//This is constructor for System.Random(used for .Next and .NextDouble)
 		private CelestialBody chosenPlanet;
+		private List<CelestialBody> cbE = new List<CelestialBody>();
+		private List<CelestialBody>cbU = new List<CelestialBody>();
+		CelestialBody sun = new CelestialBody();
+		Planetarium planetarium = new Planetarium();
 		/*
 		//Crypto Int Generator
 		private int GenNum(int min, int max)
@@ -133,12 +142,8 @@ namespace LudicrousPropulsionSystems
 		}
 		public void CreatePlanetList()
 		{
-			CelestialBody sun = new CelestialBody();
-			Planetarium planetarium = new Planetarium();
 			sun = planetarium.Sun;
-			List<CelestialBody> cbE = new List<CelestialBody>();
 			cbE.Add(sun);
-			List<CelestialBody> cbU = cbE[0].orbitingBodies;
 			while(cbU.Count > 0)
 			{
 				cbU.AddRange(cbU[0].orbitingBodies);
@@ -150,15 +155,15 @@ namespace LudicrousPropulsionSystems
 		{
 			if (!generated)
 				CreatePlanetList();
-			planetPick = GenNum(1, cbE.Count);//FIXME3
+			planetPick = GenNum(1, cbE.Count);
 		}
 		private void ChoosePlanet()
 		{
-			for (int z = 0; z < cbE.Count; z++)//FIXME4
+			for (int z = 0; z < cbE.Count; z++)
 			{
 				if (z == planetPick)
 				{
-					chosenPlanet = cbE[z];//FIXME5
+					chosenPlanet = cbE[z];
 				}
 			}
 		}
@@ -207,7 +212,7 @@ namespace LudicrousPropulsionSystems
 				}
 				generated = true;
 			}
-			if (InfiniteImprobabilityDrive.teaAvalible && InfiniteImprobabilityDrive.warping && HighLogic.LoadedSceneIsFlight)//FIXME7, FIXME8, FIXME9
+			if (InfiniteImprobabilityDrive.TeaAvalible() && InfiniteImprobabilityDrive.Warping() && HighLogic.LoadedSceneIsFlight)
 			{
 				InfiniteImprobabilityDrive.UpdateWarpStatus();//FIXME10
 				//private string planet = GeneratePlanet();
