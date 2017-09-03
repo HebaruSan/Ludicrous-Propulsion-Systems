@@ -217,7 +217,6 @@ namespace LudicrousPropulsionSystems
 		{
 			if (!generated)
 			{
-				CreatePlanetList();
 				PlanetPick();
 				ChoosePlanet();
 				while (chosenPlanet == FlightGlobals.currentMainBody)
@@ -225,6 +224,7 @@ namespace LudicrousPropulsionSystems
 					PlanetPick();
 					ChoosePlanet();
 				}
+				generated = true;
 			}
 			if (teaAvalible && warping && HighLogic.LoadedSceneIsFlight)
 			{
