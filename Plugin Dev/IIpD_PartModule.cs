@@ -9,10 +9,10 @@ namespace LudicrousPropulsionSystems
 	public class InfiniteImprobabilityDrive : PartModule
 	{
 		[KSPField(isPersistant = true, guiActive = true, guiName = "Warp", guiActiveEditor = false)] //fix this, seems incorrect. 
-		public bool warping = false;
+		public static bool warping = false;
 		
 		[KSPField(isPersistant = false, guiActive = true, guiName = "Warp Status")]
-		public string WarpStatus;
+		public static string WarpStatus;
 		
 		private double Time()
 		{
@@ -20,10 +20,10 @@ namespace LudicrousPropulsionSystems
 		}
 		private double warpedTime;
 		private bool waiting = false;
-		private double amountNeededForWarp = 10; //TODO, constant here: how much tea is consumed per warp, change to include cfg file amounts
+		private static double amountNeededForWarp = 10; //TODO, constant here: how much tea is consumed per warp, change to include cfg file amounts
 		public static double Tea()
 		{
-			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount("Tea", FlightGlobals.ActiveVessel);//FIXME1, FIXME2
+			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount("Tea", FlightGlobals.ActiveVessel);
 		}
 		public static bool TeaAvalible()
 		{
@@ -113,6 +113,8 @@ namespace LudicrousPropulsionSystems
 		private List<CelestialBody>cbU = new List<CelestialBody>();
 		CelestialBody sun = new CelestialBody();
 		Planetarium planetarium = new Planetarium();
+		private double minAlt;
+		private double maxAlt;
 		/*
 		//Crypto Int Generator
 		private int GenNum(int min, int max)
@@ -214,7 +216,7 @@ namespace LudicrousPropulsionSystems
 			}
 			if (InfiniteImprobabilityDrive.TeaAvalible() && InfiniteImprobabilityDrive.Warping() && HighLogic.LoadedSceneIsFlight)
 			{
-				InfiniteImprobabilityDrive.UpdateWarpStatus();//FIXME10
+				InfiniteImprobabilityDrive.UpdateWarpStatus();
 				//private string planet = GeneratePlanet();
 				//Planet SOI stuff here
 				//private double SOI = SOIFarReach();
