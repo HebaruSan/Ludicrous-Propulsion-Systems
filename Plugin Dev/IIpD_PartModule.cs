@@ -25,7 +25,7 @@ namespace LudicrousPropulsionSystems
 		private double amountNeededForWarp = 10; //TODO, constant here: how much tea is consumed per warp, change to include cfg file amounts
 		public double Tea()
 		{
-			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, FlightGlobals.ActiveVessel);
+			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount(Tea, FlightGlobals.ActiveVessel);//FIXME1, FIXME2
 		}
 		public void TeaAvalible()
 		{
@@ -150,15 +150,15 @@ namespace LudicrousPropulsionSystems
 		{
 			if (!generated)
 				CreatePlanetList();
-			planetPick = GenNum(1, cbE.Count);
+			planetPick = GenNum(1, cbE.Count);//FIXME3
 		}
 		private void ChoosePlanet()
 		{
-			for (int z = 0; z < cbE.Count; z++)
+			for (int z = 0; z < cbE.Count; z++)//FIXME4
 			{
 				if (z == planetPick)
 				{
-					chosenPlanet = cbE[z];
+					chosenPlanet = cbE[z];//FIXME5
 				}
 			}
 		}
@@ -181,7 +181,7 @@ namespace LudicrousPropulsionSystems
 			childMass = chosenPlanet.Mass;
 			parentMass = chosenPlanet.referenceBody.Mass;
 			
-			return (a*(1-obtEcc)*CBRT(childMass/(3*parentMass)));
+			return (obtsMA*(1-obtEcc)*CBRT(childMass/(3*parentMass)));
 		}
 		private double MinAlt()
 		{
@@ -207,17 +207,17 @@ namespace LudicrousPropulsionSystems
 				}
 				generated = true;
 			}
-			if (InfiniteImprobabilityDrive.teaAvalible && InfiniteImprobabilityDrive.warping && HighLogic.LoadedSceneIsFlight)
+			if (InfiniteImprobabilityDrive.teaAvalible && InfiniteImprobabilityDrive.warping && HighLogic.LoadedSceneIsFlight)//FIXME7, FIXME8, FIXME9
 			{
-				InfiniteImprobabilityDrive.UpdateWarpStatus();
+				InfiniteImprobabilityDrive.UpdateWarpStatus();//FIXME10
 				//private string planet = GeneratePlanet();
 				//Planet SOI stuff here
 				//private double SOI = SOIFarReach();
 				//End planet SOI calculations
 				//this.Vessel.orbitDriver.orbit = new Orbit(GenerateInc(), GenerateE(), GenerateSMA(), GenerateLAN(), GenerateArgPE(), GenerateMEP(), GenerateT(), planet);
-				this.Vessel.orbitDriver.orbit = new Orbit.CreateRandomOrbitAround(chosenPlanet, MinAlt(), MaxAlt());
+				this.Vessel.orbitDriver.orbit = new Orbit.CreateRandomOrbitAround(chosenPlanet, MinAlt(), MaxAlt());//FIXME11
 				//need to make sure that this actually creates a good random orbit, eccentric, backwards, hugely egg-shaped, all of the above. 
-				InfiniteImprobabilityDrive.warping = false;
+				InfiniteImprobabilityDrive.warping = false;//FIXME12
 				generated = false;
 			}
 		}
