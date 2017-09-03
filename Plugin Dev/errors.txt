@@ -119,3 +119,19 @@ IIpD_PartModule.cs(231,5): error CS0103: The name `UpdateWarpStatus' does not ex
 IIpD_PartModule.cs(232,20): error CS0103: The name `RandPlanet' does not exist i             n the current context
 IIpD_PartModule.cs(238,47): error CS0118: `Orbit.CreateRandomOrbitAround(Celesti             alBody)' is a `method group' but a `type' was expected
 IIpD_PartModule.cs(240,5): error CS0103: The name `warping' does not exist in th             e current context
+
+9/3, 2:00 pm
+IIpD_PartModule.cs(28,47): error CS1502: The best overloaded method match for `FinePrint.Utilities.VesselUtilities.VesselResourceAmount(string, Vessel)' has some invalid arguments
+/srv/public/dependencies/Assembly-CSharp.dll (Location of the symbol related to previous error)
+IIpD_PartModule.cs(28,68): error CS1503: Argument `#1' cannot convert `method group' expression to type `string'
+IIpD_PartModule.cs(153,27): error CS0103: The name `cbE' does not exist in the current context
+IIpD_PartModule.cs(157,24): error CS0103: The name `cbE' does not exist in the current context
+IIpD_PartModule.cs(161,21): error CS0103: The name `cbE' does not exist in the current context
+IIpD_PartModule.cs(184,12): error CS0103: The name `a' does not exist in the current context
+IIpD_PartModule.cs(210,35): error CS0122: `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.teaAvalible' is inaccessible due to its protection level
+IIpD_PartModule.cs(210,35): error CS0120: An object reference is required to access non-static member `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.teaAvalible'
+IIpD_PartModule.cs(210,77): error CS0120: An object reference is required to access non-static member `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.warping'
+IIpD_PartModule.cs(212,32): error CS0120: An object reference is required to access non-static member `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.UpdateWarpStatus()'
+IIpD_PartModule.cs(218,47): error CS0118: `Orbit.CreateRandomOrbitAround(CelestialBody)' is a `method group' but a `type' was expected
+IIpD_PartModule.cs(220,32): error CS0120: An object reference is required to access non-static member `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.warping'
+Compilation failed: 12 error(s), 0 warnings
