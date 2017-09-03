@@ -135,3 +135,14 @@ IIpD_PartModule.cs(212,32): error CS0120: An object reference is required to acc
 IIpD_PartModule.cs(218,47): error CS0118: `Orbit.CreateRandomOrbitAround(CelestialBody)' is a `method group' but a `type' was expected
 IIpD_PartModule.cs(220,32): error CS0120: An object reference is required to access non-static member `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.warping'
 Compilation failed: 12 error(s), 0 warnings
+
+9/3, 4:00 pm
+IIpD_PartModule.cs(30,17): error CS0120: An object reference is required to access non-static member `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.amountNeededForWarp'
+IIpD_PartModule.cs(37,8): error CS0120: An object reference is required to access non-static member `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.warping'
+IIpD_PartModule.cs(53,5): error CS0120: An object reference is required to access non-static member `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.WarpStatus'
+IIpD_PartModule.cs(55,13): error CS0120: An object reference is required to access non-static member `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.warping'
+IIpD_PartModule.cs(57,5): error CS0120: An object reference is required to access non-static member `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.WarpStatus'
+IIpD_PartModule.cs(61,5): error CS0120: An object reference is required to access non-static member `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.WarpStatus'
+IIpD_PartModule.cs(65,5): error CS0120: An object reference is required to access non-static member `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.WarpStatus'
+IIpD_PartModule.cs(223,47): error CS0118: `Orbit.CreateRandomOrbitAround(CelestialBody)' is a `method group' but a `type' was expected
+IIpD_PartModule.cs(225,32): error CS0120: An object reference is required to access non-static member `LudicrousPropulsionSystems.InfiniteImprobabilityDrive.warping'
