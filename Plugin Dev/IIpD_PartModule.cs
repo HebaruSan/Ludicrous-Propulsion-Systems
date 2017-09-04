@@ -222,7 +222,7 @@ namespace LudicrousPropulsionSystems
 				//private double SOI = SOIFarReach();
 				//End planet SOI calculations
 				//this.Vessel.orbitDriver.orbit = new Orbit(GenerateInc(), GenerateE(), GenerateSMA(), GenerateLAN(), GenerateArgPE(), GenerateMEP(), GenerateT(), planet);
-				this.Vessel.orbitDriver.orbit = new Orbit.CreateRandomOrbitAround(chosenPlanet, MinAlt(), MaxAlt());//FIXME11
+				this.Vessel.orbitDriver.orbit = Orbit.CreateRandomOrbitAround(chosenPlanet, MinAlt(), MaxAlt());//FIXME11
 				//need to make sure that this actually creates a good random orbit, eccentric, backwards, hugely egg-shaped, all of the above. 
 				InfiniteImprobabilityDrive.warping = false;//FIXME12
 				generated = false;
