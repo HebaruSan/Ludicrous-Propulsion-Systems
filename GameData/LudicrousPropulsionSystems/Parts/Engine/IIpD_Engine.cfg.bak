@@ -12,17 +12,17 @@ PART
 	
 	category = Propulsion
 	subcategory = 0
-	title = Infinite Improbability Drive
+	title = 
 	manufacturer = Benjamin Kerman's Welding Supply Co
-	description = The infinite improbability drive is a wonderful new method of crossing interstellar distances in a mere nothingth of a second, without all that tedious mucking about in hyperspace. It was discovered by lucky chance, and then developed into a governable form of propulsion by the Galactic Government's research centre on Damogran. This concept was developed by Douglas Kerman.
+	description = 
 	
-	TechRequired = experimentalScience
-	entryCost = 550000
-	cost = 1502500
+	TechRequired = 
+	entryCost = 
+	cost = 
 	
 	attachRules = 1,0,1,0,0
 	
-	mass = 2.5
+	mass = 
 	dragModelType = default
 	maximum_drag = 0.3
 	minimum_drag = 0.2
@@ -36,6 +36,13 @@ PART
 	heatConductivity = 0.06
 	bulkheadProfiles = size1
 	tags = warp prop rocket infinite improobability tea drive ludicrous lps
+	
+	fx_exhaustFlame_blue_small = 
+	fx_exhaustLight_blue = 
+	sound_vent_medium = engage
+	sound_rocket_hard = running
+	sound_vent_soft = disengage
+	sound_explosion_low = flameout
 	
 	MODULE
 	{

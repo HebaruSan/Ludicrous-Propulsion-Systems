@@ -2,7 +2,7 @@ PART
 {
 	name = WaterTankSmall
 	module = Part
-	author = NovaSilisko
+	author = Benjamin Cronin
 	mesh = model.mu
 	scale = 1
 	rescaleFactor = 1
