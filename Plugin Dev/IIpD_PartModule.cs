@@ -25,38 +25,50 @@ namespace LudicrousPropulsionSystems
 		private static double amountNeededForWarp = 10; //TODO, constant here: how much tea is consumed per warp, change to include cfg file amounts
 		public static double Tea()
 		{
-			Debug.Log("IIpD TeaAmount")
+			Debug.Log("IIpD TeaAmount");
 			return FinePrint.Utilities.VesselUtilities.VesselResourceAmount("Tea", FlightGlobals.ActiveVessel);
 		}
 		public static bool TeaAvalible()
 		{
 			Debug.Log("IIpD TeaAvalible");
 			if (Tea() >= amountNeededForWarp)
+			{
 				Debug.Log("TeaAvalible - true");
 				return true;
+			}
 			else
-				Debug.Log("TeaAvalible - false")'
+			{
+				Debug.Log("TeaAvalible - false");
 				return false;
+			}
 		}
 		public static bool Warping()
 		{
 			Debug.Log("IIpD Warping");
 			if (warping)
+			{
 				Debug.Log("Warping - true");
 				return true;
+			}
 			else
+			{
 				Debug.Log("Warping - false");
 				return false;
+			}
 		}
 		public static bool WarpAvalible()
 		{
 			Debug.Log("IIpD WarpAvalible");
 			if (TeaAvalible() == true && Warping() == false)
+			{
 				Debug.Log("WarpAvalible - true");
 				return true;
+			}
 			else
+			{
 				Debug.Log("WarpAvalible - false");
 				return false;
+			}
 		}
 		public static void UpdateWarpStatus()
 		{
@@ -106,7 +118,7 @@ namespace LudicrousPropulsionSystems
 				}
 				if (!waiting)
 				{
-					Debug.Log("FU !waiting);
+					Debug.Log("FU !waiting");
 					warpedTime = Time();
 					waiting = true;
 				}
@@ -157,7 +169,7 @@ namespace LudicrousPropulsionSystems
 		*/
 		private int GenNum(int min, int max)
 		{
-			Debug.Log("VM IntGen")
+			Debug.Log("VM IntGen");
 			return rand.Next(min, max);
 		}
 		private double GenDouble(double min, double max)//Not crypto, but we dont really need that here
